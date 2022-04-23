@@ -1,4 +1,4 @@
-import { css } from "@resembli/dripcss"
+import { createGlobalStyle, css } from "@resembli/dripcss"
 
 const center = css`
   display: flex;
@@ -13,12 +13,22 @@ const center = css`
   }
 `
 
+const global = createGlobalStyle`
+  body, html {
+    height: 100%;
+    margin: 0;
+  }
+  #root {
+    height: 100%;
+  }
+`
+
 function App() {
   const [clx] = center()
+  global()
 
   return (
     <div className={clx}>
-      <div>Item 1</div>
       <div>Item 2</div>
       <div>Item 3</div>
     </div>
