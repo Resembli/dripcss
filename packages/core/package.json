@@ -1,0 +1,39 @@
+{
+  "name": "@resembli/dripcss",
+  "description": "A css-in-js solution for React",
+  "private": false,
+  "author": "Lee Beydoun",
+  "version": "0.0.0",
+  "types": "src/index.ts",
+  "main": "src/index.ts",
+  "type": "module",
+  "publishConfig": {
+    "main": "dist/index.js",
+    "types": "dist/types/index.d.ts"
+  },
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Resembli/drip-css.git",
+    "directory": "packages/core"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Resembli/drip-css/issues"
+  },
+  "homepage": "https://dripcss.com",
+  "scripts": {
+    "build": "swc ./src -d dist --config-file ../.swcrc && tsc",
+    "clean": "rimraf dist",
+    "clean:build": "rimraf dist && swc ./src -d dist && tsc"
+  },
+  "peerDependencies": {
+    "@types/react": "^18.0.0",
+    "react": "^18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    }
+  }
+}

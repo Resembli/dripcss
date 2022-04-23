@@ -1,0 +1,31 @@
+pnpm-lock.yaml
+
+# Node
+**/node_modules/
+
+# Mac OS
+.DS_Store
+
+# Vite Js
+.vite
+
+# Build output
+**/dist/
+
+local/
+
+LICENSE
+
+# Dependencies
+/node_modules
+
+# Production
+build
+
+# Generated files
+.docusaurus
+.cache-loader
+
+.pnp.*
+
+.cache
