@@ -1,5 +1,11 @@
 # @resembli/dripcss
 
+## 0.0.3
+
+### Patch Changes
+
+- [`8a1717f`](https://github.com/Resembli/dripcss/commit/8a1717fd322ccb280d6b32609ea22e63cf2a5311) Thanks [@leebeydoun](https://github.com/leebeydoun)! - Fixing bad update (I really need to stop this).
+
 ## 0.0.2
 
 ### Patch Changes
