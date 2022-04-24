@@ -1,3 +1,4 @@
+// https://stackoverflow.com/a/52171480
 export function hash(str: string) {
   const seed = 0
 
