@@ -1,5 +1,11 @@
 # @resembli/dripcss
 
+## 0.0.2
+
+### Patch Changes
+
+- [`d77474a`](https://github.com/Resembli/dripcss/commit/d77474abd3f8c25dab18842712512a030b802908) Thanks [@leebeydoun](https://github.com/leebeydoun)! - Minor bump due to band git force push
+
 ## 0.0.1
 
 ### Patch Changes
