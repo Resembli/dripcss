@@ -1,38 +1,34 @@
-import { createGlobalStyle, css } from "@resembli/dripcss"
+import { css } from "@resembli/dripcss"
 
-const center = css`
+const useCenterCss = css<{ margin: number }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
-
-  div {
-    margin: 20px;
-    padding: 20px;
-    border: 1px solid black;
-  }
-`
-
-const global = createGlobalStyle`
-  body, html {
-    height: 100%;
-    margin: 0;
-  }
-  #root {
-    height: 100%;
-  }
+  height: 50%;
+  margin: ${(p) => `${p.margin}px`};
 `
 
 function App() {
-  const [clx] = center()
-  global()
+  const [cx, s] = useCenterCss({ margin: 20 })
 
   return (
-    <div className={clx}>
-      <div>Item 2</div>
-      <div>Item 3</div>
+    <div className={cx} style={s}>
+      <div>Item</div>
+      <BB />
     </div>
   )
+}
+
+const useBlackDiv = css`
+  padding: 20px;
+  color: white;
+  background-color: black;
+`
+
+function BB() {
+  const [cx] = useBlackDiv()
+
+  return <div className={cx}>LEEE</div>
 }
 
 export default App
