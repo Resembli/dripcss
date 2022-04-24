@@ -1,5 +1,13 @@
 # @resembli/dripcss
 
+## 0.0.2
+
+### Patch Changes
+
+- [`d77474a`](https://github.com/Resembli/dripcss/commit/d77474abd3f8c25dab18842712512a030b802908) Thanks [@leebeydoun](https://github.com/leebeydoun)! - Minor bump due to band git force push
+
+* [`f2775e0`](https://github.com/Resembli/dripcss/commit/f2775e0ac9b05e9cc95dc796821552dea930da5c) Thanks [@leebeydoun](https://github.com/leebeydoun)! - Changed code to optimise for bundle size
+
 ## 0.0.1
 
 ### Patch Changes
