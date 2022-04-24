@@ -3,18 +3,24 @@ import { useId, useInsertionEffect } from "react"
 
 import type { TemplateArgument } from "./compile"
 import { compile } from "./compile"
-import { hash } from "./hash"
-import { initialStyleSheet } from "./initialStyleSheet"
 
 export function css<T>(template: TemplateStringsArray, ...args: TemplateArgument<T>[]) {
-  const className = "css" + hash(template.join(""))
-  const [compiledTemplate, cssVarsMap] = compile(template, args, className)
+  const [cssRules, cssVarsMap, className] = compile(template, args)
 
   function useCss(props?: T) {
     const id = useId()
 
     useInsertionEffect(() => {
-      initialStyleSheet(compiledTemplate, id, `.${className}`)
+      const existingSheet = document.getElementById(id)
+
+      if (existingSheet) {
+        existingSheet.innerHTML = cssRules
+      } else {
+        const styleSheet = document.createElement("style")
+        styleSheet.id = id
+        styleSheet.innerHTML = cssRules
+        document.head.appendChild(styleSheet)
+      }
 
       return () => {
         const el = document.getElementById(id)

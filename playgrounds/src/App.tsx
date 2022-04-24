@@ -1,11 +1,13 @@
 import { css } from "@resembli/dripcss"
 
 const useCenterCss = css<{ margin: number }>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 50%;
-  margin: ${(p) => `${p.margin}px`};
+  & {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50%;
+    margin: ${(p) => `${p.margin}px`};
+  }
 `
 
 function App() {
@@ -20,9 +22,11 @@ function App() {
 }
 
 const useBlackDiv = css`
-  padding: 20px;
-  color: white;
-  background-color: black;
+  & {
+    padding: 20px;
+    color: white;
+    background-color: black;
+  }
 `
 
 function BB() {
