@@ -1,6 +1,6 @@
 // https://stackoverflow.com/a/52171480
-export function hash(str: string) {
-  const seed = 0
+export let hash = (str: string) => {
+  let seed = 0
 
   let h1 = 0xdeadbeef ^ seed,
     h2 = 0x41c6ce57 ^ seed

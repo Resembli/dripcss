@@ -39,5 +39,11 @@ module.exports = {
         "@typescript-eslint/no-var-requires": "off",
       },
     },
+    {
+      files: ["./packages/core/**/*.ts"],
+      rules: {
+        "prefer-const": "off",
+      },
+    },
   ],
 }

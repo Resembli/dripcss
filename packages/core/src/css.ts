@@ -4,10 +4,10 @@ import { useId, useInsertionEffect } from "react"
 import type { TemplateArgument } from "./compile"
 import { compile } from "./compile"
 
-export function css<T>(template: TemplateStringsArray, ...args: TemplateArgument<T>[]) {
+export let css = <T>(template: TemplateStringsArray, ...args: TemplateArgument<T>[]) => {
   const [cssRules, cssVarsMap, className] = compile(template, args)
 
-  function useCss(props?: T) {
+  function useCss(p?: T) {
     const id = useId()
 
     useInsertionEffect(() => {
@@ -29,7 +29,7 @@ export function css<T>(template: TemplateStringsArray, ...args: TemplateArgument
     }, [])
 
     const varResults = Object.keys(cssVarsMap).reduce((acc, key) => {
-      const value = cssVarsMap[key](props ?? ({} as T))
+      const value = cssVarsMap[key](p ?? ({} as T))
       if (value) acc[key] = value
 
       return acc
