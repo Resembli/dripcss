@@ -1,5 +1,11 @@
 # @resembli/dripcss
 
+## 0.0.4
+
+### Patch Changes
+
+- [`50a3a74`](https://github.com/Resembli/dripcss/commit/50a3a746324e76ff0ba024d73793445dec655acb) Thanks [@leebeydoun](https://github.com/leebeydoun)! - Further changes to improve bundle size.
+
 ## 0.0.3
 
 ### Patch Changes
