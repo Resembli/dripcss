@@ -5,31 +5,22 @@ import type { TemplateArgument } from "./compile"
 import { compile } from "./compile"
 
 export let css = <T>(template: TemplateStringsArray, ...args: TemplateArgument<T>[]) => {
-  const [cssRules, cssVarsMap, className] = compile(template, args)
+  let [innerHTML, cssVarsMap, className] = compile(template, args)
 
-  function useCss(p?: T) {
-    const id = useId()
+  let useCss = (p?: T) => {
+    let id = useId()
 
     useInsertionEffect(() => {
-      const existingSheet = document.getElementById(id)
-
-      if (existingSheet) {
-        existingSheet.innerHTML = cssRules
-      } else {
-        const styleSheet = document.createElement("style")
-        styleSheet.id = id
-        styleSheet.innerHTML = cssRules
-        document.head.appendChild(styleSheet)
-      }
+      document.head.appendChild(Object.assign(document.createElement("style"), { id, innerHTML }))
 
       return () => {
-        const el = document.getElementById(id)
+        let el = document.getElementById(id)
         if (id && el) el.parentElement?.removeChild(el)
       }
     }, [])
 
-    const varResults = Object.keys(cssVarsMap).reduce((acc, key) => {
-      const value = cssVarsMap[key](p ?? ({} as T))
+    let varResults = Object.keys(cssVarsMap).reduce((acc, key) => {
+      let value = cssVarsMap[key](p ?? ({} as T))
       if (value) acc[key] = value
 
       return acc

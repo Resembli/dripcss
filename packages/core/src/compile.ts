@@ -7,11 +7,11 @@ export let compile = <T>(t: TemplateStringsArray, a: TemplateArgument<T>[]) => {
   let clx = `css-${hash(t.join(""))}`
 
   let cnt = 0
-  let c = t.reduce((acc, next, index) => {
-    let val = a[index]
+  let c = t.reduce((acc, next, i) => {
+    let val = a[i]
 
     if (typeof val === "function") {
-      let cvn = `--var-${clx}-${cnt++}`
+      let cvn = `--${clx}-${cnt++}`
       cvm[cvn] = val
 
       val = `var(${cvn})`
@@ -19,7 +19,7 @@ export let compile = <T>(t: TemplateStringsArray, a: TemplateArgument<T>[]) => {
     return acc + next + (val == null ? "" : val)
   }, "")
 
-  const css = c.replace(/&/g, `.${clx}`)
+  let css = c.replace(/&/g, `.${clx}`)
 
   return [css, cvm, clx] as const
 }
