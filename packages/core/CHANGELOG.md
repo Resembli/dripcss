@@ -1,5 +1,11 @@
 # @resembli/dripcss
 
+## 0.1.0
+
+### Minor Changes
+
+- [`a383e08`](https://github.com/Resembli/dripcss/commit/a383e087ee72b5991ea5ae4d83d90607e43acd78) Thanks [@leebeydoun](https://github.com/leebeydoun)! - Updated code to new patch version as api is more stable.
+
 ## 0.0.5
 
 ### Patch Changes
