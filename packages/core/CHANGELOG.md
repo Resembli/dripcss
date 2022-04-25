@@ -1,5 +1,11 @@
 # @resembli/dripcss
 
+## 0.0.5
+
+### Patch Changes
+
+- [`4f18a9b`](https://github.com/Resembli/dripcss/commit/4f18a9b8f469c506680cd0e2f0add5848b3252e6) Thanks [@leebeydoun](https://github.com/leebeydoun)! - Fixed esm support
+
 ## 0.0.4
 
 ### Patch Changes
