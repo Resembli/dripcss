@@ -17,6 +17,7 @@ function App() {
     <div className={cx} style={s}>
       <div>Item</div>
       <BB />
+      <BB />
     </div>
   )
 }
@@ -30,7 +31,7 @@ const useBlackDiv = css`
 `
 
 function BB() {
-  const [cx] = useBlackDiv()
+  const cx = useBlackDiv()
 
   return <div className={cx}>LEEE</div>
 }

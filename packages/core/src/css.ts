@@ -6,6 +6,10 @@ import { compile } from "./compile.js"
 
 export let css = <T>(template: TemplateStringsArray, ...args: TemplateArgument<T>[]) => {
   let [innerHTML, cssVarsMap, className] = compile(template, args)
+  // We need to ensure call this hook multiple times doesn't result in the same class being created
+  // multiple times. Hence we keep track of the initialized value, and if it is initialized we don't add
+  // it again to the head element.
+  let initialized = false
 
   function useCss(): string
   function useCss(p: T): [string, CSSProperties]
@@ -13,11 +17,14 @@ export let css = <T>(template: TemplateStringsArray, ...args: TemplateArgument<T
     let id = useId()
 
     useInsertionEffect(() => {
+      if (initialized) return
+      initialized = true
       document.head.appendChild(Object.assign(document.createElement("style"), { id, innerHTML }))
 
       return () => {
         let el = document.getElementById(id)
         el && el.parentElement?.removeChild(el)
+        initialized = false
       }
     }, [])
 
