@@ -1,9 +1,5 @@
 {
-  "cSpell.words": [
-    "changesets",
-    "dripcss",
-    "pnpm"
-  ],
+  "cSpell.words": ["changesets", "dripcss", "pnpm"],
   "files.exclude": {
     "**/.git": true,
     "**/.svn": true,
@@ -17,5 +13,7 @@
     "**/.factorypath": true,
     "**/node_modules": true
   },
-  "explorerExclude.backup": null
+  "explorerExclude.backup": null,
+  "javascript.preferences.importModuleSpecifierEnding": "js",
+  "typescript.preferences.importModuleSpecifierEnding": "js"
 }

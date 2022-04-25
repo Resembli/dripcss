@@ -1,4 +1,4 @@
-import { hash } from "./hash"
+import { hash } from "./hash.js"
 
 export type TemplateArgument<T> = string | number | ((p: T) => string)
 

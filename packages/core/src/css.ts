@@ -1,13 +1,15 @@
 import type { CSSProperties } from "react"
 import { useId, useInsertionEffect } from "react"
 
-import type { TemplateArgument } from "./compile"
-import { compile } from "./compile"
+import type { TemplateArgument } from "./compile.js"
+import { compile } from "./compile.js"
 
 export let css = <T>(template: TemplateStringsArray, ...args: TemplateArgument<T>[]) => {
   let [innerHTML, cssVarsMap, className] = compile(template, args)
 
-  let useCss = (p?: T) => {
+  function useCss(): string
+  function useCss(p: T): [string, CSSProperties]
+  function useCss(p?: T) {
     let id = useId()
 
     useInsertionEffect(() => {
@@ -15,7 +17,7 @@ export let css = <T>(template: TemplateStringsArray, ...args: TemplateArgument<T
 
       return () => {
         let el = document.getElementById(id)
-        if (id && el) el.parentElement?.removeChild(el)
+        el && el.parentElement?.removeChild(el)
       }
     }, [])
 
@@ -26,6 +28,7 @@ export let css = <T>(template: TemplateStringsArray, ...args: TemplateArgument<T
       return acc
     }, {} as Record<string, string>)
 
+    if (!p) return className
     return [className, varResults as CSSProperties] as const
   }
 

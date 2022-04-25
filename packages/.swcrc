@@ -6,6 +6,7 @@
       "tsx": true
     }
   },
+  "sourceMaps": true,
   "module": {
     "type": "es6",
     "strict": true
